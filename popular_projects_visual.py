@@ -19,11 +19,7 @@ for repo in repositories:
         high_rated.append(repo)
 
 # extract data out of the repositories for visual 
-repo = high_rated[0]
-for key in repo.keys():
-    print(key) 
-
-links, owners, descriptions = [], [], []
+links, stargazers, hover_texts = [], [], []
 for repo in high_rated:
     # get name and url and cover url with thath name
     name = repo["name"]
@@ -31,6 +27,14 @@ for repo in high_rated:
     link = f"<a href='{url}'>{name}"
     links.append(link) 
 
-    # get description and owner
-    owners.append(repo["owner"]["login"]) 
-    descriptions.append(repo["description"]) 
+    # get description and owner and make an hover-text
+    owner = repo["owner"]["login"]
+    description = repo["description"]
+    hover_text = f"{owner} - {description}"
+    hover_texts.append(hover_text)
+
+    # get stargazers
+    stargazers.append(repo["stargazers_count"])
+
+
+# make a visual 
