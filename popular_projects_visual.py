@@ -37,11 +37,14 @@ for repo in high_rated:
     stargazers.append(repo["stargazers_count"])
 
 
-# make a visual 
+# create a visual 
 title = "Popular python-repositories on GitHub"
 labels = {"x": "Repo-links", "y": "Stargazer count"}
 fig = px.bar(x=links, y=stargazers, title=title, labels=labels, 
-            hover_name=hover_texts) 
+            hover_name=hover_texts, color=stargazers,
+             color_discrete_sequence=px.colors.sequential.Plasma) 
+fig.update_layout(title_font_size=22, xaxis_title_font_size=18,
+                  yaxis_title_font_size=18)
 
 
-fig.show()
+fig.show() 
