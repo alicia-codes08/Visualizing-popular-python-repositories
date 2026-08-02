@@ -38,3 +38,10 @@ for repo in high_rated:
 
 
 # make a visual 
+title = "Popular python-repositories on GitHub"
+labels = {"x": "Repo-links", "y": "Stargazer count"}
+fig = px.bar(x=links, y=stargazers, title=title, labels=labels, 
+            hover_name=hover_texts) 
+
+
+fig.show()
