@@ -18,4 +18,19 @@ for repo in repositories:
     if stargazers_count > 150_000:
         high_rated.append(repo)
 
-print(high_rated) 
+# extract data out of the repositories for visual 
+repo = high_rated[0]
+for key in repo.keys():
+    print(key) 
+
+links, owners, descriptions = [], [], []
+for repo in high_rated:
+    # get name and url and cover url with thath name
+    name = repo["name"]
+    url = repo["html_url"]
+    link = f"<a href='{url}'>{name}"
+    links.append(link) 
+
+    # get description and owner
+    owners.append(repo["owner"]["login"]) 
+    descriptions.append(repo["description"]) 
